@@ -1,39 +1,59 @@
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { fetchMovies } from '../../services/apiService';
 const Movies = () => {
-  const [dogs, useDogs] = useState([
-    'movie-1',
-    'movie-2',
-    'movie-3',
-    'movie-4',
-    'movie-5',
-  ]);
+  const [movies, setMovies] = useState([]);
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const dogId = searchParams.get('dogId') ?? '';
+  const query = searchParams.get('query') ?? '';
 
   const updateQueryString = evt => {
     if (evt.target.value === '') {
       return setSearchParams({});
     }
-    setSearchParams({ dogId: evt.target.value });
+    setSearchParams({ query: evt.target.value });
   };
 
-  const vidibleDogs = dogs.filter(dog => dog.includes(dogId));
-
-  useEffect(() => console.log(useDogs), [useDogs]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await fetchMovies(query);
+        setMovies([...data.results]);
+      } catch (error) {
+        console.log('Error', error.message);
+      } finally {
+        // setIsLoading(false);
+      }
+    };
+    fetchData();
+  }, [query]);
 
   return (
     <div>
-      <input type="text" value={dogId} onChange={updateQueryString} />
-      <button onClick={() => setSearchParams({ dogId: dogId })}>Set SP</button>
-      {vidibleDogs.map(movie => {
-        return (
-          <Link key={movie} state={{ from: location }} to={`${movie}`}>
-            {movie}
-          </Link>
-        );
-      })}
+      <form autoComplete="off">
+        <input
+          type="text"
+          placeholder="enter a query"
+          name="query"
+          onChange={updateQueryString}
+        />
+        <button type="submit">Search</button>
+      </form>
+      <ul>
+        {movies.map(movie => {
+          return (
+            <li key={movie.id}>
+              <Link
+                key={movie.id}
+                state={{ from: location }}
+                to={`${movie.id}`}
+              >
+                {movie.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };
