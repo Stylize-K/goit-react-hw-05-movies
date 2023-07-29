@@ -15,12 +15,24 @@ export const fetchTrends = async () => {
   return data;
 };
 
-//Функція, що фетчить інформацію про конкретный фільм
-export const fetchMovie = async (movieId) => {
+//Функція, що фетчить інформацію про конкретный фільм (для сторінки MovieDetails)
+export const fetchMovie = async movieId => {
   axios.defaults.baseURL = 'https://api.themoviedb.org/3/movie';
   const { data } = await axios(`${movieId}`, {
     params: {
       api_key: KEY,
+    },
+  });
+  return data;
+};
+
+//Функція, що фетчить список фільмів за ключевим словом (для сторінки Movies)
+export const fetchMovies = async query => {
+  axios.defaults.baseURL = 'https://api.themoviedb.org/3/search/movie';
+  const { data } = await axios({
+    params: {
+      api_key: KEY,
+      query,
     },
   });
   return data;
