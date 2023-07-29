@@ -21,6 +21,7 @@ const Home = () => {
 
   return (
     <>
+      <h1>Tranding Today</h1>
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
