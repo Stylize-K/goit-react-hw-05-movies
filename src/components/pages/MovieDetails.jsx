@@ -34,7 +34,7 @@ const MovieDetails = () => {
         width={250}
       />
       <p>
-        User scores: <b>{movie.vote_average * 10}%</b>
+        User scores: <b>{Math.round(movie.vote_average * 10)}%</b>
       </p>
       <h2>Overview</h2>
       <p>{movie.overview}</p>
