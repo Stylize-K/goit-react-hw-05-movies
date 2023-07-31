@@ -1,10 +1,11 @@
 import { useRef, useEffect, useState } from 'react';
-import { fetchMovie } from '../../services/apiService';
+import { fetchMovie } from '../services/apiService';
 import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
+
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
   const { movieId } = useParams();
-  console.log(movieId);
+
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
@@ -22,8 +23,6 @@ const MovieDetails = () => {
     fetchData();
   }, [movieId]);
 
-  console.log(movie.genres);
-
   return (
     <>
       <Link to={backLinkLocationRef.current}>Вернуться назад</Link>
@@ -38,11 +37,9 @@ const MovieDetails = () => {
       </p>
       <h2>Overview</h2>
       <p>{movie.overview}</p>
-      {/* <h2>Genres</h2>
-      {movie} &&{' '}
-      {movie.genres.map(({ id, name }) => (
-        <p key={id}>{name}</p>
-      ))} */}
+      <h2>Genres</h2>
+
+      {/* <p>{movie.genres.map(({ name }) => name).join(', ')}</p> */}
       <ul>
         <li>
           <Link to="cast">Cast</Link>

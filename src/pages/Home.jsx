@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchTrends } from '../../services/apiService';
+import { fetchTrends } from '../services/apiService';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
