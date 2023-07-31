@@ -38,6 +38,31 @@ export const fetchMovies = async query => {
   return data;
 };
 
+//Функція, що фетчить інформацію про акторский склад конкретного фільму (для компонента Cast)
+export const fetchCast = async movieId => {
+  axios.defaults.baseURL = 'https://api.themoviedb.org/3/movie';
+  const { data } = await axios(`${movieId}/credits`, {
+    params: {
+      api_key: KEY,
+    },
+  });
+  return data;
+};
+
+//Функція, що фетчить інформацію про відгуки на конкретний фільм (для компонента Reviews)
+export const fetchReviews = async movieId => {
+  axios.defaults.baseURL = 'https://api.themoviedb.org/3/movie';
+  const { data } = await axios(`${movieId}/reviews`, {
+    params: {
+      api_key: KEY,
+    },
+  });
+  return data;
+};
+
 //Приклади корректних запитів
 // https://api.themoviedb.org/3/movie/447277?api_key=1d0ad6699455ffbc52bd586fd70b6548
+
 // https://api.themoviedb.org/3/trending/movie/day?api_key=1d0ad6699455ffbc52bd586fd70b6548
+
+//https://api.themoviedb.org/3/movie/447277/reviews?api_key=1d0ad6699455ffbc52bd586fd70b6548
