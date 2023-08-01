@@ -28,21 +28,6 @@ const Movies = () => {
     <div>
       <SearchForm />
       <MoviesList movies={movies} />
-      {/* <ul>
-        {movies.map(movie => {
-          return (
-            <li key={movie.id}>
-              <Link
-                key={movie.id}
-                state={{ from: location }}
-                to={`${movie.id}`}
-              >
-                {movie.title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul> */}
     </div>
   );
 };
