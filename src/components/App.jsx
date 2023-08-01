@@ -1,15 +1,13 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import Home from './pages/Home';
-// import Movies from './pages/Movies';
-// import MovieDetails from './pages/MovieDetails';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
-
+//Асинхронне завантаження JS-коду для маршрутів застосунку
 const Home = lazy(() => import('../pages/Home'));
 const Movies = lazy(() => import('../pages/Movies'));
 const MovieDetails = lazy(() => import('../pages/MovieDetails'));
+
 export const App = () => {
   return (
     <Routes>
