@@ -4,6 +4,7 @@ import { Link, Outlet, useParams, useLocation } from 'react-router-dom';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
+
   const { movieId } = useParams();
 
   const location = useLocation();
@@ -25,7 +26,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Link to={backLinkLocationRef.current}>Вернуться назад</Link>
+      <Link to={backLinkLocationRef.current}> ↩ Go back</Link>
       <h1>{movie.title}</h1>
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
