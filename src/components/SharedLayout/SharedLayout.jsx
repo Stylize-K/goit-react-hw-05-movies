@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { FcHome, FcFilmReel } from 'react-icons/fc';
 import { StyledLink, Navigation, Header } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
@@ -7,8 +8,14 @@ export const SharedLayout = () => {
     <div>
       <Header>
         <Navigation>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/movies">Movies</StyledLink>
+          <StyledLink to="/">
+            <FcHome />
+            Home
+          </StyledLink>
+          <StyledLink to="/movies">
+            <FcFilmReel />
+            Movies
+          </StyledLink>
         </Navigation>
       </Header>
       <main>
