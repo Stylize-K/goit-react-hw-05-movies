@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 
 export const MovieContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 15px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const BackLink = styled(Link)`
