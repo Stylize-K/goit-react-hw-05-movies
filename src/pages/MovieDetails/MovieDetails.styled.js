@@ -33,3 +33,8 @@ export const List = styled.ul`
   display: flex;
   padding-left: 0;
 `;
+
+export const Img = styled.img`
+  border-radius: 5px;
+  overflow: hidden;
+`;

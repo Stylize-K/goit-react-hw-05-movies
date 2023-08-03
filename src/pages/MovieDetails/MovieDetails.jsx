@@ -6,6 +6,7 @@ import {
   BackLink,
   LinkInfo,
   List,
+  Img,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -37,7 +38,7 @@ const MovieDetails = () => {
     <>
       <BackLink to={backLinkLocationRef.current}> ↩ Go back</BackLink>
       <MovieContainer>
-        <img
+        <Img
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`

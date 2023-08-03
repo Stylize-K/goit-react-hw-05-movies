@@ -30,7 +30,7 @@ export const Reviews = () => {
         {reviews.map(review => {
           return (
             <li key={review.id}>
-              <h3>{review.author}</h3>
+              <h4>{review.author}</h4>
               <p>{review.content}</p>
             </li>
           );

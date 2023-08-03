@@ -8,7 +8,7 @@ export const StyledNavLink = styled(NavLink)`
   color: black;
   background-color: #e8eced;
   text-decoration: none;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 5px 10px 5px 10px;
   border-radius: 50px;
   transition: transform 0.2s;
@@ -23,14 +23,14 @@ export const StyledNavLink = styled(NavLink)`
 
 export const Header = styled.header`
   margin: 0;
-  border: 1px solid black;
+  border-radius: 10px;
   background: linear-gradient(120deg, #fce38a 0%, #f38181 100%);
 `;
 
 export const Navigation = styled.nav`
   display: flex;
   gap: 30px;
-  padding: 10px 5px 10px 5px;
+  padding: 10px 5px 10px 15px;
   font-size: 16px;
   font-weight: 500;
 `;
