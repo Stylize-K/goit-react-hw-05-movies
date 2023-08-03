@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { fetchMovie } from '../../services/apiService';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
+
 import {
   MovieContainer,
   BackLink,

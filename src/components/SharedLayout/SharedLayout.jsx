@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { FcHome, FcFilmReel } from 'react-icons/fc';
+import { Toaster } from 'react-hot-toast';
 import {
   StyledNavLink,
   Navigation,
@@ -11,6 +12,16 @@ import {
 export const SharedLayout = () => {
   return (
     <Container>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        containerStyle={{
+          top: 5,
+          left: 20,
+          bottom: 20,
+          right: 20,
+        }}
+      />
       <Header>
         <Navigation>
           <StyledNavLink to="/">

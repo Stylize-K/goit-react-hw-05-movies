@@ -1,4 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import {
   FormContainer,
   Form,
@@ -13,6 +14,11 @@ export const SearchForm = () => {
   //Функція сабміту форми пошуку
   const handleSubmit = evt => {
     evt.preventDefault();
+    console.log(evt.target.elements.searchQuery.value);
+    if (evt.target.elements.searchQuery.value.trim() === '') {
+      toast.error('You didnt enter anything');
+      return;
+    }
     setSearchParams({ searchQuery: evt.target.elements.searchQuery.value });
     evt.currentTarget.reset();
   };
