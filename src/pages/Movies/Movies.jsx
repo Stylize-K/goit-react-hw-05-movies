@@ -17,7 +17,6 @@ const Movies = () => {
       try {
         const data = await fetchMovies(query);
         setMovies([...data.results]);
-        console.log(data.results);
         if (!data.results.length) {
           return toast.error(
             'Sorry, there are no movies matching your search query. Please try again'
