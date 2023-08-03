@@ -14,7 +14,6 @@ export const SearchForm = () => {
   //Функція сабміту форми пошуку
   const handleSubmit = evt => {
     evt.preventDefault();
-    console.log(evt.target.elements.searchQuery.value);
     if (evt.target.elements.searchQuery.value.trim() === '') {
       toast.error('You didnt enter anything');
       return;
@@ -28,7 +27,7 @@ export const SearchForm = () => {
       <Form autoComplete="off" onSubmit={handleSubmit}>
         <InputStyled
           type="text"
-          placeholder="enter a query"
+          placeholder="Enter movie name..."
           name="searchQuery"
           defaultValue={search}
         />
