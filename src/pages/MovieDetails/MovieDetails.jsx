@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 import { fetchMovie } from '../../services/apiService';
 import { Outlet, useParams, useLocation } from 'react-router-dom';
+import { ColorRing } from 'react-loader-spinner';
+import { Loader } from '../../components/Loader/Loader';
 
 import {
   MovieContainer,
@@ -12,6 +14,7 @@ import {
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
@@ -20,12 +23,13 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const data = await fetchMovie(movieId);
         setMovie(data);
       } catch (error) {
         console.log('Error', error.message);
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     fetchData();
@@ -37,6 +41,19 @@ const MovieDetails = () => {
 
   return (
     <>
+      {isLoading && (
+        <Loader>
+          <ColorRing
+            visible={true}
+            height="180"
+            width="180"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+          />
+        </Loader>
+      )}
       <BackLink to={backLinkLocationRef.current}> ↩ Go back</BackLink>
       <MovieContainer>
         <Img

@@ -3,6 +3,7 @@ import { fetchTrends } from '../../services/apiService';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 import { ColorRing } from 'react-loader-spinner';
 import { Title } from './Home.styled';
+import { Loader } from '../../components/Loader/Loader';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -26,19 +27,21 @@ const Home = () => {
 
   return (
     <>
+      {isLoading && (
+        <Loader>
+          <ColorRing
+            visible={true}
+            height="180"
+            width="180"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+          />
+        </Loader>
+      )}
       <Title>Tranding Today</Title>
       <MoviesList movies={movies} />
-      {isLoading && (
-        <ColorRing
-          visible={true}
-          height="80"
-          width="80"
-          ariaLabel="blocks-loading"
-          wrapperStyle={{}}
-          wrapperClass="blocks-wrapper"
-          colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
-        />
-      )}
     </>
   );
 };
