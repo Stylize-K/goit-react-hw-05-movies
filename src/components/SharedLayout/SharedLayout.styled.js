@@ -29,10 +29,14 @@ export const Header = styled.header`
 
 export const Navigation = styled.nav`
   display: flex;
+  justify-content: center;
   gap: 30px;
   padding: 10px 5px 10px 15px;
   font-size: 16px;
   font-weight: 500;
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+  }
 `;
 
 export const Container = styled.div`
