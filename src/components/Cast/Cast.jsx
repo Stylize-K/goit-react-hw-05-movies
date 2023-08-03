@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { fetchCast } from '../../services/apiService';
 import { useState, useEffect } from 'react';
-import { List } from './Cast.styled';
+import { List, Li } from './Cast.styled';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -33,7 +33,7 @@ export const Cast = () => {
       <List>
         {cast.map(actor => {
           return (
-            <li key={actor.id}>
+            <Li key={actor.id}>
               <img
                 src={
                   actor.profile_path
@@ -41,10 +41,9 @@ export const Cast = () => {
                     : defaultActorImg
                 }
                 alt={actor.name}
-                width={200}
               />
               <p>{actor.name}</p>
-            </li>
+            </Li>
           );
         })}
       </List>

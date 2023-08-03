@@ -10,6 +10,9 @@ import {
   LinkInfo,
   List,
   Img,
+  ImgWrp,
+  InfoWrp,
+  AdditionalWrp,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -56,16 +59,19 @@ const MovieDetails = () => {
       )}
       <BackLink to={backLinkLocationRef.current}> ↩ Go back</BackLink>
       <MovieContainer>
-        <Img
-          src={
-            movie.poster_path
-              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              : defaultMovieImg
-          }
-          alt={movie.title}
-          width={360}
-        />
-        <div>
+        <ImgWrp>
+          <Img
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : defaultMovieImg
+            }
+            alt={movie.title}
+            width={360}
+          />
+        </ImgWrp>
+
+        <InfoWrp>
           <h1>{movie.title}</h1>
           <p>
             User scores: <b>{Math.round(movie.vote_average * 10)}%</b>
@@ -74,18 +80,20 @@ const MovieDetails = () => {
           <p>{movie.overview}</p>
           <h2>Genres</h2>
           <p>{movie.genres?.map(({ name }) => name).join(', ')}</p>
-        </div>
+        </InfoWrp>
       </MovieContainer>
-      <h3>Additional information</h3>
-      <List>
-        <li>
-          <LinkInfo to="cast">Cast</LinkInfo>
-        </li>
-        <li>
-          <LinkInfo to="reviews">Reviews</LinkInfo>
-        </li>
-      </List>
-      <Outlet />
+      <AdditionalWrp>
+        <h3>Additional information</h3>
+        <List>
+          <li>
+            <LinkInfo to="cast">Cast</LinkInfo>
+          </li>
+          <li>
+            <LinkInfo to="reviews">Reviews</LinkInfo>
+          </li>
+        </List>
+        <Outlet />
+      </AdditionalWrp>
     </>
   );
 };
