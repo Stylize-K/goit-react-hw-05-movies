@@ -15,6 +15,10 @@ export const BackLink = styled(Link)`
   border-radius: 5px;
   text-decoration: none;
   color: black;
+  &:hover {
+    background-color: #fce38a;
+    font-weight: 500;
+  }
 `;
 
 export const LinkInfo = styled(Link)`
@@ -26,6 +30,10 @@ export const LinkInfo = styled(Link)`
   border-radius: 5px;
   text-decoration: none;
   color: black;
+  &:hover {
+    background-color: #fce38a;
+    font-weight: 500;
+  }
 `;
 
 export const List = styled.ul`
