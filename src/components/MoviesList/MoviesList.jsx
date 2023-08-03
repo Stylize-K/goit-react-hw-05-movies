@@ -12,8 +12,8 @@ export const MoviesList = ({ movies }) => {
   return (
     <Ul>
       {movies.map(movie => (
-        <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
-          <Li key={movie.id}>
+        <Li key={movie.id}>
+          <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
             <Img
               src={
                 movie.poster_path
@@ -23,8 +23,8 @@ export const MoviesList = ({ movies }) => {
               alt={movie.title}
             />
             <P>{movie.title}</P>
-          </Li>
-        </StyledLink>
+          </StyledLink>
+        </Li>
       ))}
     </Ul>
   );
