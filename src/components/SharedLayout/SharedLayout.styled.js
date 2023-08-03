@@ -1,27 +1,23 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const StyledLink = styled(NavLink)`
+export const StyledNavLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  gap: 5px;
   color: black;
   background-color: #e8eced;
   text-decoration: none;
   border: 1px solid black;
   padding: 5px 10px 5px 10px;
   border-radius: 50px;
-  animation: pulse 4s infinite;
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+  transition: transform 0.2s;
+
   &.active {
     color: red;
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 `;
 

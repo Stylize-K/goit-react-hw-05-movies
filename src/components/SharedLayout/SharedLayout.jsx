@@ -1,21 +1,21 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { FcHome, FcFilmReel } from 'react-icons/fc';
-import { StyledLink, Navigation, Header } from './SharedLayout.styled';
+import { StyledNavLink, Navigation, Header } from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (
     <div>
       <Header>
         <Navigation>
-          <StyledLink to="/">
+          <StyledNavLink to="/">
             <FcHome />
             Home
-          </StyledLink>
-          <StyledLink to="/movies">
+          </StyledNavLink>
+          <StyledNavLink to="/movies">
             <FcFilmReel />
             Movies
-          </StyledLink>
+          </StyledNavLink>
         </Navigation>
       </Header>
       <main>
