@@ -46,7 +46,7 @@ const MovieDetails = () => {
               : defaultMovieImg
           }
           alt={movie.title}
-          width={300}
+          width={360}
         />
         <div>
           <h1>{movie.title}</h1>
