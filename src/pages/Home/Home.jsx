@@ -8,6 +8,7 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  //При завантаженні сторінки виконуємо запит інформації про популярні фільми на сьогодні
   useEffect(() => {
     const fetchData = async () => {
       try {

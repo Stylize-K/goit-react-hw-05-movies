@@ -7,6 +7,7 @@ export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   const { movieId } = useParams();
 
+  //Робимо запит при кожній зміні movieId
   useEffect(() => {
     const fetchData = async () => {
       if (!movieId) return;

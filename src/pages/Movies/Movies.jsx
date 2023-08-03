@@ -6,10 +6,10 @@ import { MoviesList } from '../../components/MoviesList/MoviesList';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-
   const [searchParam] = useSearchParams();
   const query = searchParam.get('searchQuery');
 
+  //Виконуємо запит при кожній зміні query
   useEffect(() => {
     if (!query) return;
     const fetchData = async () => {

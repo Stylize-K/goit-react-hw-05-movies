@@ -7,6 +7,7 @@ export const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
 
+  //Робимо запит при кожній зміні movieId
   useEffect(() => {
     const fetchData = async () => {
       if (!movieId) return;
@@ -22,16 +23,25 @@ export const Cast = () => {
     fetchData();
   }, [movieId]);
 
+  //Лінк на картинку-заглушку для актора
+  const defaultActorImg =
+    'https://hanover-twp.org/images/uploads/10-07-2019_9-53-26_official-icon.jpg';
+
   return (
     <div>
+      {!cast.length && <p>No cast information for this movie...</p>}
       <List>
         {cast.map(actor => {
           return (
             <li key={actor.id}>
               <img
-                src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
+                src={
+                  actor.profile_path
+                    ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                    : defaultActorImg
+                }
                 alt={actor.name}
-                width={150}
+                width={200}
               />
               <p>{actor.name}</p>
             </li>

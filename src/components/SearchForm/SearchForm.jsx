@@ -10,11 +10,13 @@ export const SearchForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get('searchQuery') ?? '';
 
+  //Функція сабміту форми пошуку
   const handleSubmit = evt => {
     evt.preventDefault();
     setSearchParams({ searchQuery: evt.target.elements.searchQuery.value });
     evt.currentTarget.reset();
   };
+
   return (
     <FormContainer>
       <Form autoComplete="off" onSubmit={handleSubmit}>
@@ -29,10 +31,3 @@ export const SearchForm = () => {
     </FormContainer>
   );
 };
-
-//   const updateQueryString = evt => {
-//     if (evt.target.value === '') {
-//       return setSearchParams({});
-//     }
-//     setSearchParams({ query: evt.target.value });
-//   };

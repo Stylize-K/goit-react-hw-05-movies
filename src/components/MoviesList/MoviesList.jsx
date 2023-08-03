@@ -4,27 +4,25 @@ import { StyledLink, Ul, Li, Img, P } from './MoviesList.styled';
 
 export const MoviesList = ({ movies }) => {
   const location = useLocation();
-  // const defaultImg =
-  //   '<https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700>';
+
+  //Лінк на картинку-заглушку фільму
+  const defaultMovieImg =
+    'https://mishanonoo.com/cdn/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_500x750_crop_center.gif';
+
   return (
     <Ul>
       {movies.map(movie => (
         <Li key={movie.id}>
           <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
             <Img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              src={
+                movie.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  : defaultMovieImg
+              }
               alt={movie.title}
               width={250}
             />
-            {/* <Img
-              src={
-                movieData.poster_path ?
-                [<https://image.tmdb.org/t/p/w500/${movieData.poster_path}>](<https://image.tmdb.org/t/p/w500/$%7BmovieData.poster_path%7D>) : defaultImg
-                }
-                width={250}
-                alt="poster"
-                /> */}
-
             <P>{movie.title}</P>
           </StyledLink>
         </Li>

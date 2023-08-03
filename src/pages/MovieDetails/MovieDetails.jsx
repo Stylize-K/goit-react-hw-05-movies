@@ -10,12 +10,11 @@ import {
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState({});
-
   const { movieId } = useParams();
-
   const location = useLocation();
   const backLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
+  //Виконуємо запит при кожній зміні movieId
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,12 +29,20 @@ const MovieDetails = () => {
     fetchData();
   }, [movieId]);
 
+  //Лінк на картинку-заглушку фільму
+  const defaultMovieImg =
+    'https://mishanonoo.com/cdn/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_500x750_crop_center.gif';
+
   return (
     <>
       <BackLink to={backLinkLocationRef.current}> ↩ Go back</BackLink>
       <MovieContainer>
         <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+              : defaultMovieImg
+          }
           alt={movie.title}
           width={250}
         />
@@ -50,7 +57,7 @@ const MovieDetails = () => {
           <p>{movie.genres?.map(({ name }) => name).join(', ')}</p>
         </div>
       </MovieContainer>
-      <p>Additional information</p>
+      <h3>Additional information</h3>
       <List>
         <li>
           <LinkInfo to="cast">Cast</LinkInfo>
