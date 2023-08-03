@@ -1,11 +1,16 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { FcHome, FcFilmReel } from 'react-icons/fc';
-import { StyledNavLink, Navigation, Header } from './SharedLayout.styled';
+import {
+  StyledNavLink,
+  Navigation,
+  Header,
+  Container,
+} from './SharedLayout.styled';
 
 export const SharedLayout = () => {
   return (
-    <div>
+    <Container>
       <Header>
         <Navigation>
           <StyledNavLink to="/">
@@ -23,6 +28,6 @@ export const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </main>
-    </div>
+    </Container>
   );
 };

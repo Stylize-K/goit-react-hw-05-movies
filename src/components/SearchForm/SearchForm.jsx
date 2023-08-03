@@ -1,4 +1,10 @@
 import { useSearchParams } from 'react-router-dom';
+import {
+  FormContainer,
+  Form,
+  ButtonStyled,
+  InputStyled,
+} from './SearchForm.styled';
 
 export const SearchForm = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -10,17 +16,17 @@ export const SearchForm = () => {
     evt.currentTarget.reset();
   };
   return (
-    <>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <input
+    <FormContainer>
+      <Form autoComplete="off" onSubmit={handleSubmit}>
+        <InputStyled
           type="text"
           placeholder="enter a query"
           name="searchQuery"
           defaultValue={search}
         />
-        <button type="submit">Search</button>
-      </form>
-    </>
+        <ButtonStyled type="submit">Search</ButtonStyled>
+      </Form>
+    </FormContainer>
   );
 };
 

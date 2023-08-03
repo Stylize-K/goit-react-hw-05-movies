@@ -1,8 +1,8 @@
 import { useSearchParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { fetchMovies } from '../services/apiService';
-import { SearchForm } from '../components/SearchForm/SearchForm';
-import { MoviesList } from '../components/MoviesList/MoviesList';
+import { fetchMovies } from '../../services/apiService';
+import { SearchForm } from '../../components/SearchForm/SearchForm';
+import { MoviesList } from '../../components/MoviesList/MoviesList';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -11,6 +11,7 @@ const Movies = () => {
   const query = searchParam.get('searchQuery');
 
   useEffect(() => {
+    if (!query) return;
     const fetchData = async () => {
       try {
         const data = await fetchMovies(query);

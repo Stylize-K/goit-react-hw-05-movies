@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { fetchTrends } from '../services/apiService';
-import { MoviesList } from '../components/MoviesList/MoviesList';
+import { fetchTrends } from '../../services/apiService';
+import { MoviesList } from '../../components/MoviesList/MoviesList';
 import { ColorRing } from 'react-loader-spinner';
+import { Title } from './Home.styled';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -24,7 +25,7 @@ const Home = () => {
 
   return (
     <>
-      <h1>Tranding Today</h1>
+      <Title>Tranding Today</Title>
       <MoviesList movies={movies} />
       {isLoading && (
         <ColorRing

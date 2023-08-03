@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { fetchCast } from '../../services/apiService';
 import { useState, useEffect } from 'react';
+import { List } from './Cast.styled';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -8,6 +9,7 @@ export const Cast = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      if (!movieId) return;
       try {
         const data = await fetchCast(movieId);
         setCast([...data.cast]);
@@ -22,7 +24,7 @@ export const Cast = () => {
 
   return (
     <div>
-      <ul>
+      <List>
         {cast.map(actor => {
           return (
             <li key={actor.id}>
@@ -35,7 +37,7 @@ export const Cast = () => {
             </li>
           );
         })}
-      </ul>
+      </List>
     </div>
   );
 };
