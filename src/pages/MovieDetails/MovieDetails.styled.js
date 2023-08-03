@@ -36,5 +36,4 @@ export const List = styled.ul`
 
 export const Img = styled.img`
   border-radius: 5px;
-  overflow: hidden;
 `;

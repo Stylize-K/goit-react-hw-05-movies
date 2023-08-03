@@ -6,7 +6,7 @@ import {
   BackLink,
   LinkInfo,
   List,
-  Img
+  Img,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -45,7 +45,7 @@ const MovieDetails = () => {
               : defaultMovieImg
           }
           alt={movie.title}
-          width={250}
+          width={300}
         />
         <div>
           <h1>{movie.title}</h1>
