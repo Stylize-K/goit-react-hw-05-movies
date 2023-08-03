@@ -10,7 +10,7 @@ export const Ul = styled.ul`
   list-style-type: none;
   display: grid;
   max-width: calc(100vw - 48px);
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-gap: 40px;
   margin-top: 0;
   margin-bottom: 0;
@@ -38,7 +38,7 @@ export const Img = styled.img`
 `;
 
 export const P = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: black;
 `;

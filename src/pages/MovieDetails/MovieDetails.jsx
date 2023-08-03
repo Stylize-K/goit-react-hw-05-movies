@@ -6,7 +6,7 @@ import {
   BackLink,
   LinkInfo,
   List,
-  Img,
+  Img
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
