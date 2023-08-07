@@ -57,7 +57,7 @@ export const List = styled.ul`
 
 export const Img = styled.img`
   border-radius: 5px;
-  min-width: 400px;
+  min-width: 350px;
 `;
 
 export const ImgWrp = styled.div`
