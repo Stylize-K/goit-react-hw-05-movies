@@ -59,7 +59,7 @@ export const Img = styled.img`
   border-radius: 5px;
   width: 350px;
   @media screen and (min-width: 768px) {
-    min-width: 400px;
+    min-width: 300px;
   }
 `;
 
