@@ -67,7 +67,6 @@ const MovieDetails = () => {
                 : defaultMovieImg
             }
             alt={movie.title}
-            width={360}
           />
         </ImgWrp>
 
