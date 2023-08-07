@@ -57,7 +57,10 @@ export const List = styled.ul`
 
 export const Img = styled.img`
   border-radius: 5px;
-  min-width: 320px;
+  width: 350px;
+  @media screen and (min-width: 768px) {
+    min-width: 400px;
+  }
 `;
 
 export const ImgWrp = styled.div`
